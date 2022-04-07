@@ -1,0 +1,19 @@
+channels:
+  - conda-forge
+dependencies:
+  # Jupyter
+  - jupyterlab=3
+  - jupyterlab-spellchecker
+  - jupyterlab_code_formatter
+  - jupyterlab-drawio
+  - jupyterlab-autosave-on-focus-change
+  - jupyterlab-system-monitor
+  # Python Kernel
+  - ipykernel>5.1
+  - python=3.8
+  # update outdated repo2docker version
+  - pip
+  - pip:
+      # Until the 0.6.0 release we can use an installation of the development version on github
+      - git+https://github.com/glotaran/pyglotaran.git
+      - git+https://github.com/glotaran/pyglotaran-extras.git
