@@ -1,4 +1,4 @@
--r ../binder/pyglotaran-requirements.txt
+-r ../.binder/pyglotaran-requirements.txt
 
 pytest
 nbval
