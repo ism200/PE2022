@@ -5,3 +5,7 @@
 [Photosynthesis and Energy 2022](https://www.nat.vu.nl/~ivo/PE2022/)
 
 in preparation
+
+## Case studies
+
+- [CK](./CK-case-study/)
