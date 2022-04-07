@@ -1,0 +1,4 @@
+
+# Until the 0.6.0 release we can use an installation of the development version on github
+git+https://github.com/glotaran/pyglotaran.git
+git+https://github.com/glotaran/pyglotaran-extras.git
