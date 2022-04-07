@@ -9,9 +9,20 @@ on:
   workflow_dispatch:
 
 jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+      - name: Run pre-commit
+        uses: pre-commit/action@v2.0.3
+
   create-test-matrix:
     name: Create Notebook List
     runs-on: ubuntu-latest
+    needs: [pre-commit]
     outputs:
       notebook-list: ${{ steps.notebooks.outputs.notebook-list }}
     steps:

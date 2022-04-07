@@ -1,0 +1,28 @@
+[tool.black]
+line-length = 99
+target-version = ['py38']
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+include_trailing_comma = true
+line_length = 99
+
+[tool.nbqa.addopts]
+flake8 = [
+    "--extend-ignore=E402,F404",
+    "--max-line-length=99"
+]
