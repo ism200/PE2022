@@ -8,6 +8,7 @@ dependencies:
   - jupyterlab-drawio
   - jupyterlab-autosave-on-focus-change
   - jupyterlab-system-monitor
+  - jupyterlab-unfold
   # Python Kernel
   - ipykernel>5.1
   - python=3.8
