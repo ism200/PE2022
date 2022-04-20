@@ -1,0 +1,84 @@
+default_megacomplex: decay
+
+dataset_groups:
+  default:
+    residual_function: non_negative_least_squares
+
+dataset:
+  BE_data:
+    megacomplex: [mc1]
+    initial_concentration: input1
+    irf: irf1
+
+megacomplex:
+  mc1:
+    k_matrix: [PS1]
+
+# [s1, s2, s3, s4] = [PS1bulk, PS1red, RP1, freeChla]
+k_matrix:
+  PS1:
+    matrix:
+      (s2, s1): rates.1
+      (s1, s2): rates.1r
+      (s3, s1): rates.2
+      (s1, s1): rates.3
+      (s2, s2): rates.3
+      (s3, s3): rates.3
+      (s4, s4): rates.4
+
+
+irf:
+  irf1:
+    type: spectral-multi-gaussian
+    center: [irf_common.center, irf_common.center]
+    width: [irf_1.width, irf_2.width]
+    scale:  [irf_1.scale, irf_2.scale]
+    dispersion_center: irf_1.dispc
+    center_dispersion_coefficients: [irf_1.disp1, irf_1.disp2]
+    backsweep: True
+    backsweep_period: irf_common.backsweep
+
+
+initial_concentration:
+  input1:
+    compartments: [s1, s2, s3, s4]
+    parameters: [
+      input.1,
+      input.0,
+      input.0,
+      input.2,
+      ]
+
+clp_constraints:
+  - type: zero
+    target: s2
+    interval:
+      - [1, 680]
+  - type: zero
+    target: s3
+    interval:
+      - [1, 1000]
+
+clp_area_penalties:
+  - type: equal_area
+    source: s1
+    source_intervals: [[300, 3000]]
+    target: s2
+    target_intervals: [[300, 3000]]
+    parameter: area.1
+    weight: 0.5
+  - type: equal_area
+    source: s1
+    source_intervals: [[300, 3000]]
+    target: s4
+    target_intervals: [[300, 3000]]
+    parameter: area.1
+    weight: 0.1
+
+weights:
+  - datasets: [BE_data]
+    global_interval: [780, 1000]
+    value: 0.7
+  - datasets: [BE_data]
+    global_interval: [750, 1000]
+    value: 0.7

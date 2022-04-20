@@ -1,0 +1,30 @@
+input:
+  - ["1", 1]
+  - ["2", 0.05,{vary: true}]
+  - ["0", 0]
+  - {vary: false}
+
+irf_common:
+  - ["center", 118.0]
+  - ["backsweep", 13800.0, {vary: false}]
+
+irf_1:
+  - ["width", 4.3665]
+  - ["scale", 1, {vary: false}]
+  - ["dispc", 690.0, {vary: false}]
+  - ["disp1", -0.83]
+  - ["disp2", 5.7]
+
+irf_2:
+  - ["width", 37.536]
+  - ["scale", 0.136, {vary: true}]
+
+rates:
+  - ["1", 0.173528]
+  - ["1r", 0.173528]
+  - ["2", 0.066]
+  - ["3", 5.e-4, {vary: false}]
+  - ["4", 0.00165]
+
+area:
+  - ["1", 1, {"vary": False}]
