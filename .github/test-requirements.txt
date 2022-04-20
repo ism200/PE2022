@@ -1,0 +1,4 @@
+-r ../.binder/pyglotaran-requirements.txt
+
+pytest
+nbval
