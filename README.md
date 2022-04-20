@@ -9,3 +9,4 @@ in preparation
 ## Case studies
 
 - [CK](./CK-case-study/)
+- [BE](./BE-case-study/)
