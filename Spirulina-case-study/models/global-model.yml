@@ -1,0 +1,55 @@
+default_megacomplex: decay
+
+dataset_groups:
+  default:
+    residual_function: non_negative_least_squares
+
+dataset:
+  dataset1:
+    megacomplex: [mc1]
+    initial_concentration: input1
+    irf: irf1
+
+megacomplex:
+  mc1:
+    k_matrix: [km1]
+
+k_matrix:
+  km1:
+    matrix:
+      (s2, s1): kinetic.1
+      (s3, s2): kinetic.2
+      (s4, s3): kinetic.3
+      (s5, s4): kinetic.4
+      (s5, s5): kinetic.5
+
+irf:
+  irf1:
+    # type: spectral-multi-gaussian (then center&width must be in a list, and scale is needed)
+    type: spectral-gaussian
+    # type: gaussian
+    center: irf.center
+    width: irf.width
+    # scale:  irf.scale
+    dispersion_center: irf.dispc
+    center_dispersion_coefficients: [irf.disp1, irf.disp2]
+    backsweep: True
+    backsweep_period: irf.backsweep
+
+initial_concentration:
+  input1:
+    compartments: [s1, s2, s3, s4, s5]
+    parameters: [
+      input.1,
+      input.0,
+      input.0,
+      input.0,
+      input.0]
+
+clp_constraints:
+  - type: zero
+    target: s1
+    interval:
+      - [1, 1000]
+# weights:
+#     datasets: [dataset1]

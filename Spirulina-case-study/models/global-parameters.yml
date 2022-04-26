@@ -1,0 +1,22 @@
+input:
+  - ["1", 1]
+  - ["0", 0]
+  - {vary: false}
+
+irf:
+  - ["center", -84.0]
+  - ["width", 1.6]
+  # - ["scale", 1, {vary: false}]
+  - ["dispc", 690.0, {vary: false}]
+  - ["disp1", -0.68]
+  - ["disp2", .71]
+  - ["backsweep", 13200.0, {vary: false}]
+
+kinetic:
+  # - [2., {vary: false}]
+  - [2., {vary: true}]
+  - 0.225
+  - 0.068
+  - 0.021
+  - 0.00016
+  - {non-negative: true}
