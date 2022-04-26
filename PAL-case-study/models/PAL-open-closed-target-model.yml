@@ -1,0 +1,97 @@
+default_megacomplex: decay
+
+dataset_groups:
+  default:
+    residual_function: non_negative_least_squares
+
+dataset:
+  dataset_open:
+    megacomplex: [PS1, PS2_open]
+    megacomplex_scale: [mc_scale.PS1, mc_scale.PS2]
+    initial_concentration: input1
+    irf: irf_open
+    scale: dataset_scale.open_scale
+  dataset_closed:
+    megacomplex: [PS1, PS2_closed]
+    megacomplex_scale: [mc_scale.PS1, mc_scale.PS2]
+    initial_concentration: input1
+    irf: irf_closed
+    scale: dataset_scale.closed_scale
+
+megacomplex:
+  PS1:
+    k_matrix: [km1]
+  PS2_open:
+    k_matrix: [km_open]
+  PS2_closed:
+    k_matrix: [km_closed]
+
+k_matrix:
+  km1:
+    matrix:
+      (s1, s1): kinetic.2
+      (s1, s2): kinetic.1_1
+      (s2, s1): kinetic.1
+      (s2, s2): kinetic.2
+      (s3, s1): kinetic.3
+      (s3, s3): kinetic.2
+  km_closed:
+    matrix:
+      (s4, s4): kinetic.2
+      (s4, s5): kinetic.4_2
+      (s5, s4): kinetic.4
+      (s5, s5): kinetic.5
+  km_open:
+    matrix:
+      (s4, s4): kinetic.2
+      (s4, s5): kinetic.4_2_open
+      (s5, s4): kinetic.4_open
+      (s5, s5): kinetic.5_open
+
+
+irf:
+  irf_closed: &irf_closed
+    type: spectral-multi-gaussian
+    center: [irf_common_closed.center, irf_common_closed.center]
+    width: [gauss_1.width, gauss_2.width]
+    scale:  [gauss_1.scale, gauss_2.scale]
+    dispersion_center: irf_1.dispc
+    center_dispersion_coefficients: [irf_1.disp1, irf_1.disp2]
+    backsweep: True
+    backsweep_period: irf_common_closed.backsweep
+  irf_open:
+    <<: *irf_closed
+    center: [irf_common_open.center, irf_common_open.center]
+
+
+initial_concentration:
+  input1: &input1
+    compartments: [s1, s2, s3, s4, s5]
+    parameters: [
+      input.1,
+      input.0,
+      input.0,
+      input.1,
+      input.0,
+      ]
+
+
+clp_constraints:
+  - type: zero
+    target: s2
+    interval:
+      - [1, 690]
+  - type: zero
+    target: s3
+    interval:
+      - [1, 1000]
+  - type: zero
+    target: s5
+    interval:
+      - [1, 1000]
+
+
+weights:
+  - datasets: [dataset_open, dataset_closed]
+    global_interval: [780, 1000]
+    value: 0.3
