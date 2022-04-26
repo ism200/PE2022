@@ -12,8 +12,8 @@ irf:
   - ["disp2", .71]
 
 kinetic:
-  - [2, {vary: false}]
-  - [0.1, {vary: false}]
+  - [4, {vary: false}]
+  - [0.2, {vary: true}]
   - 0.05
   - 0.1
   - 0.03
