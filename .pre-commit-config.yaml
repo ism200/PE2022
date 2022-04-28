@@ -12,15 +12,13 @@ repos:
       # Upgrades python style
       - id: nbqa-pyupgrade
         additional_dependencies: [pyupgrade==2.31.1]
-        args: [--nbqa-mutate, --py38-plus]
+        args: [--py38-plus]
       # Sorts imports
       - id: nbqa-isort
         additional_dependencies: [isort==5.10.1]
-        args: [--nbqa-mutate]
       # Formats code
       - id: nbqa-black
         additional_dependencies: [black==22.3.0]
-        args: [--nbqa-mutate]
       # Detects code smells
       - id: nbqa-flake8
       # Checks that python code is valid
