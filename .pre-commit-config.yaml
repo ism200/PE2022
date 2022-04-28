@@ -4,27 +4,30 @@ repos:
     rev: 0.5.0
     hooks:
       - id: nbstripout
-        args: [--strip-empty-cells]
+        args:
+          [
+            --strip-empty-cells,
+            --extra-keys,
+            metadata.kernelspec metadata.language_info.version metadata.language_info.pygments_lexer metadata.language_info.codemirror_mode.version,
+          ]
 
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.3.1
     hooks:
-      # Formats code
-      - id: nbqa-black
-        additional_dependencies: [black==22.3.0]
-        args: [--nbqa-mutate]
       # Upgrades python style
       - id: nbqa-pyupgrade
         additional_dependencies: [pyupgrade==2.31.1]
-        args: [--nbqa-mutate, --py38-plus]
+        args: [--py38-plus]
+      # Sorts imports
+      - id: nbqa-isort
+        additional_dependencies: [isort==5.10.1]
+      # Formats code
+      - id: nbqa-black
+        additional_dependencies: [black==22.3.0]
       # Detects code smells
       - id: nbqa-flake8
       # Checks that python code is valid
       - id: nbqa-check-ast
-      # Sorts imports
-      - id: nbqa-isort
-        additional_dependencies: [isort==5.10.1]
-        args: [--nbqa-mutate]
 
   # Checks for common spelling errors
   - repo: https://github.com/codespell-project/codespell
