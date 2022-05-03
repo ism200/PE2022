@@ -1,0 +1,65 @@
+default_megacomplex: decay
+
+dataset_groups:
+  default:
+    residual_function: variable_projection
+
+dataset:
+  BRC_VIS_data:
+    initial_concentration: input1
+    megacomplex: [mc1,mc2]
+    megacomplex_scale: [mc_scale.1, mc_scale.2]
+    irf: irf1
+  BRC_NIR_data:
+    initial_concentration: input1
+    megacomplex: [mc1,mc2]
+    megacomplex_scale: [mc_scale.1, mc_scale.2]
+    irf: irf2
+
+initial_concentration:
+  input1:
+    compartments: [s1, s2, s3, s4, s5]
+    parameters: [
+      input.1,
+      input.0,
+      input.0,
+      input.0,
+      input.0
+      ]
+
+megacomplex:
+  mc1:
+    k_matrix: [km1]
+  mc2:
+    k_matrix: [km2]
+
+k_matrix:
+  km1:
+    matrix:
+      (s2, s1): rates.k21
+      (s3, s2): rates.k32
+      (s4, s3): rates.k43
+      (s5, s4): rates.k54
+      (s5, s5): rates.k55
+  km2:
+    matrix:
+      (s2, s1): rates.k21
+      (s3, s2): rates.k32s
+      (s4, s3): rates.k43s
+      (s5, s4): rates.k54s
+      (s5, s5): rates.k55
+
+irf:
+  irf1:
+    type: spectral-multi-gaussian
+    center: [irf.center]
+    width: [irf.width]
+    dispersion_center: irf.dispc
+    center_dispersion_coefficients: [irf.disp1, irf.disp2, irf.disp3]
+  irf2:
+    type: spectral-multi-gaussian
+    center: [irf2.center]
+    width: [irf2.width]
+    dispersion_center: irf2.dispc
+    center_dispersion_coefficients: [irf2.disp1, irf2.disp2]
+

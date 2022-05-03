@@ -1,0 +1,35 @@
+input:
+  - ["1", 1]
+  - ["0", 0]
+  - {vary: false}
+
+irf:
+  - ["center", ]
+  - ["width", 0.023]
+  - ["dispc", 500.0, {vary: false}]
+  - ["disp1",  1.73, {vary: false}]
+  - ["disp2",  -0.57, {vary: false}]
+  - ["disp3", 7.89E-02, {vary: false}]
+
+irf2:
+  - ["center", ]
+  - ["width", 0.032]
+  - ["dispc", 1000.0, {vary: false}]
+  - ["disp1",  .1]
+  - ["disp2",  -0.1]
+
+rates:
+  - ["k21",31, {vary: false}]
+  - ["k32",]
+  - ["k43",]
+  - ["k54",]
+  - ["k32s",]
+  - ["k43s",]
+  - ["k54s",]
+  - ["k55",1.e-9, {vary: false}]
+  - {non-negative: True}
+
+mc_scale:
+  - ["1", 1,{"expr": "1-$mc_scale.2"}]
+  - ["2", ]
+  - {vary: false}

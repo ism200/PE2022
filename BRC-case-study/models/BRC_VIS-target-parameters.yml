@@ -1,0 +1,20 @@
+input:
+  - ["1", 1]
+  - ["0", 0]
+  - {vary: false}
+
+irf:
+  - ["center", ]
+  - ["width", 0.023]
+  - ["dispc", 500.0, {vary: false}]
+  - ["disp1",  1.73, {vary: false}]
+  - ["disp2",  -0.57, {vary: false}]
+  - ["disp3", 7.89E-02, {vary: false}]
+
+rates:
+  - ["k21",31, {vary: false}]
+  - ["k32",]
+  - ["k43",]
+  - ["k54",]
+  - ["k55",1.e-4, {vary: false}]
+  - {non-negative: True}
