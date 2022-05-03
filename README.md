@@ -13,3 +13,7 @@ in preparation
 - [PAL](./PAL-case-study/)
 - [PCP](./PCP-case-study/)
 - [Spirulina](./Spirulina-case-study/)
+
+## Exercises
+
+- [BRC](./BRC-case-study/)
