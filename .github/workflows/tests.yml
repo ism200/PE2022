@@ -42,6 +42,7 @@ jobs:
               "BRC_NIR-global-case-study-pretty",
               "BRC_VIS_NIR-target-case-study-pretty",
               "BRC_VIS-global-case-study-pretty",
+              "CK-case-study",
           ]
 
           notebook_paths = []
