@@ -5,26 +5,26 @@ input:
   - {vary: false}
 
 irf:
-  - ["center", 320.0]
+  - ["center", ]
   - ["width", 12.0]
   - ["dispc", 692.0, {vary: false}]
-  - ["disp1", 2.71, {vary: false}]
-  - ["disp2", -2.85, {vary: false}]
+  - ["disp1", , {vary: false}]
+  - ["disp2", , {vary: false}]
   - ["backsweep", 13200.0, {vary: false}]
 
 kinetic:
-  - [0.004, {vary: false}]
-  - [0.092]
-  - [0.234, {vary: false}]
-  - ["out",6e-4]
+  - [, {vary: false}]
+  - []
+  - [, {vary: false}]
+  - ["out",]
 #   pattern <#kinetic>_<#scaling>
   - ["1_1",{expr: '$kinetic.1 * $scaling.1'}]
   - ["2_1",{expr: '$kinetic.2 * $scaling.1'}]
   - ["3_2",{expr: '$kinetic.3 * $scaling.2'}]
 
 scaling:
-  - [0.75, {vary: false}]
-  - [0.3, {vary: false}]
+  - [, {vary: false}]
+  - [, {vary: false}]
 
 rel:
   - ['r1', 1, {"vary": False}]
