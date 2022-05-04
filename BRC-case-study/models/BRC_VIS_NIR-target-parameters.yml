@@ -4,7 +4,7 @@ input:
   - {vary: false}
 
 irf:
-  - ["center", ]
+  - ["center", 0.55]
   - ["width", 0.023]
   - ["dispc", 500.0, {vary: false}]
   - ["disp1",  1.73, {vary: false}]
@@ -12,7 +12,7 @@ irf:
   - ["disp3", 7.89E-02, {vary: false}]
 
 irf2:
-  - ["center", ]
+  - ["center", 1.1]
   - ["width", 0.032]
   - ["dispc", 1000.0, {vary: false}]
   - ["disp1",  .1]
@@ -20,16 +20,19 @@ irf2:
 
 rates:
   - ["k21",31, {vary: false}]
-  - ["k32",]
-  - ["k43",]
-  - ["k54",]
-  - ["k32s",]
-  - ["k43s",]
-  - ["k54s",]
+  - ["k32",0.52]
+  - ["k43",1.]
+  - ["k54",0.006]
+  - ["k32s",0.22]
+  - ["k43s",0.28]
+  - ["k54s",0.0022]
   - ["k55",1.e-9, {vary: false}]
   - {non-negative: True}
 
 mc_scale:
   - ["1", 1,{"expr": "1-$mc_scale.2"}]
-  - ["2", ]
+  - ["2", 0.28]
   - {vary: false}
+
+rel:
+  - ['r1', 1, {"vary": False}]

@@ -63,3 +63,13 @@ irf:
     dispersion_center: irf2.dispc
     center_dispersion_coefficients: [irf2.disp1, irf2.disp2]
 
+clp_relations:
+  - source: s5
+    target: s3
+    parameter: rel.r1
+    interval: [[870, 980]]
+
+weights:
+  - datasets: [BRC_NIR_data]
+    global_interval: [780, 1100]
+    value: 3
