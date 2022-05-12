@@ -9,7 +9,11 @@ in preparation
 ## Case studies
 
 - [BE](./BE-case-study/)
-- [CK](./CK-case-study/)
 - [PAL](./PAL-case-study/)
 - [PCP](./PCP-case-study/)
 - [Spirulina](./Spirulina-case-study/)
+
+## Exercises
+
+- [BRC](./BRC-case-study/)
+- [CK](./CK-case-study/)

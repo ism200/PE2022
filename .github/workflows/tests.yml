@@ -38,14 +38,22 @@ jobs:
           import json
           from pathlib import Path
 
+          block_list =[
+              "BRC_NIR-global-case-study-pretty",
+              "BRC_VIS_NIR-target-case-study-pretty",
+              "BRC_VIS-global-case-study-pretty",
+              "CK-case-study",
+          ]
+
           notebook_paths = []
           for notebook_path in Path().rglob("*.ipynb"):
-              notebook_paths.append(
-                  {
-                      "name": notebook_path.stem,
-                      "path": notebook_path.resolve().as_posix(),
-                  }
-              )
+              if notebook_path.stem not in block_list:
+                  notebook_paths.append(
+                      {
+                          "name": notebook_path.stem,
+                          "path": notebook_path.resolve().as_posix(),
+                      }
+                  )
 
           print(f"::set-output name=notebook-list::{json.dumps(notebook_paths)}")
 
