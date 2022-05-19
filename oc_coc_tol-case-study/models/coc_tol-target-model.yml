@@ -1,0 +1,54 @@
+default_megacomplex: decay
+
+dataset_groups:
+  default:
+    residual_function: variable_projection
+
+dataset:
+  coc_tol_data:
+    initial_concentration: input2
+    megacomplex: [mc2, artifact2]
+    irf: irf2
+
+initial_concentration:
+  input2:
+    compartments: [s1, s2, s3, s4]
+    parameters: [
+      input.1,
+      input.0,
+      input.0,
+      input.0
+      ]
+
+megacomplex:
+  mc2:
+    k_matrix: [km2]
+  artifact2:
+    type: coherent-artifact
+    order: 3
+
+k_matrix:
+  km2:
+    matrix:
+      (s2, s1): rates.k21
+      (s3, s2): rates.k32
+      (s3, s3): rates.k33
+      (s4, s3): rates.k43
+      (s4, s4): rates.k44
+
+irf:
+  irf2:
+    type: spectral-multi-gaussian
+    center: [irf.center2]
+    width: [irf.width2]
+    dispersion_center: irf.common_dispcenter
+    center_dispersion_coefficients: [irf.data1_disp1,irf.data1_disp2]
+    model_dispersion_with_wavenumber: true
+
+weights:
+  - datasets: [coc_tol_data]
+    global_interval: [520, 540]
+    value: 0.4
+  - datasets: [coc_tol_data]
+    global_interval: [720,1000]
+    value: 0.5

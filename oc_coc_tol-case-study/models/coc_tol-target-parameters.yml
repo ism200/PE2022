@@ -1,0 +1,21 @@
+input:
+  - ["1", 1]
+  - ["0", 0]
+  - {vary: false}
+
+irf:
+  - ["common_dispcenter",550, {"vary": False}]
+  - ["data1_disp1", -0.840490937 ,{"vary": False}]
+  - ["data1_disp2", -0.354524136 ,{"vary": False}]
+  - ["center2",, {"vary": True}]
+  - ["width2",6.E-02, {"vary": True}]
+
+rates:
+  - ["k21",]
+  - ["k32",]
+  - ["k3total",]
+  - ["Tyield",0.3, {"vary": False}]
+  - ["k33",1, {"expr": "$rates.k3total*(1-$rates.Tyield)"}]
+  - ["k43",1, {"expr": "$rates.k3total*$rates.Tyield"}]
+  - ["k44",0.00001, {"vary": False}]
+  - {non-negative: True}
