@@ -43,9 +43,9 @@ jobs:
               "BRC_VIS_NIR-target-case-study-pretty",
               "BRC_VIS-global-case-study-pretty",
               "CK-case-study",
-              "oc_tol.ipynb",
-              "coc_tol.ipynb",
-              "oc_coc_tol_target.ipynb",
+              "oc_tol",
+              "coc_tol",
+              "oc_coc_tol_target",
           ]
 
           notebook_paths = []
