@@ -17,17 +17,19 @@ rates:
   - ["kocslow",]
   - ["kcocfast",1, {"expr": "$rates.kocfast*2"}]
   - ["kcocslow",1, {"expr": "$rates.kocslow*2"}]
-  - ["k21",3, {"vary": False}]
-  - ["k31",]
-  - ["k31coc",1, {"expr": "$rates.k31*2"}]
+  - ["k21",]
   - ["k3total",]
-  - ["Tyield",0.3, {"vary": False}]
+  - ["Tyield",, {"vary": False}]
   - ["k33",1, {"expr": "$rates.k3total*(1-$rates.Tyield)"}]
   - ["k43",1, {"expr": "$rates.k3total*$rates.Tyield"}]
   - ["k44",0.00001, {"vary": False}]
   - {non-negative: True}
 
 mc_scale:
-  - ["1", 1,{"expr": "1-$mc_scale.2"}]
-  - ["2", 0.91]
+  - ["1", ]
+  - ["2", 1,{"expr": "1-$mc_scale.1"}]
   - {vary: true}
+  - {non-negative: True}
+
+rel:
+  - ['r1', 1, {"vary": False}]

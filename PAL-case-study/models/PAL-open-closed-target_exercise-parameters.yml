@@ -1,0 +1,56 @@
+input:
+  - ["1", 1]
+  - ["0", 0]
+  - {vary: false}
+
+
+irf_common_closed:
+  - ["center", ]
+  - ["backsweep", 13800.0, {vary: false}]
+
+irf_common_open:
+  - ["center", ]
+  - ["backsweep", 13800.0, {vary: false}]
+
+irf_1:
+  # - ["width", 4.3665]
+  # - ["scale", 1, {vary: false}]
+  - ["dispc", 690.0, {vary: false}]
+  - ["disp1", -0.83]
+  - ["disp2", 5.7]
+
+gauss_1:
+  - ["width", 4.67]
+  - ["scale", 1, {vary: false}]
+
+gauss_2:
+  - ["width", 48.8929]
+  - ["scale", 0.103935]
+
+
+#   pattern <#kinetic>_<#scaling>
+kinetic:
+  - ["1", , {vary: false}]
+  - ["1_1", {expr: '$kinetic.1 * $scaling.1'}]
+  - ["2", 5e-4, {vary: false}]
+  - ["3", , {vary: false}]
+  - ["4", ]
+  - ["4_2", {expr: '$kinetic.4 * $scaling.2'}]
+  - ["5", ]
+  - ["4_open", ]
+  - ["5_open", ]
+  - ["4_2_open", , {vary: false}]
+  - {non-negative: True}
+# note that non-negative must be all lower case!
+
+scaling:
+  - [1.6, {vary: false}]
+  - [1.26, {vary: false}]
+
+dataset_scale:
+  - ["open_scale", 0.1]
+  - ["closed_scale", 1, {vary: false}]
+
+mc_scale:
+  - ["PS1", 0.70, {vary: false}]
+  - ["PS2", 0.30, {vary: false}]

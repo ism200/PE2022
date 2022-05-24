@@ -46,6 +46,8 @@ jobs:
               "oc_tol",
               "coc_tol",
               "oc_coc_tol_target",
+              "oc_coc_tol_target_refined",
+              "PAL_open_closed_target_exercise"
           ]
 
           notebook_paths = []
