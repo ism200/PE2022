@@ -2,7 +2,10 @@ default_megacomplex: decay
 
 dataset_groups:
   default:
+    # which residual_function? delete the line that is not appropriate
+    residual_function: variable_projection
     residual_function: non_negative_least_squares
+    # do not forget to fill the zero constraint in line 85
 
 dataset:
   dataset_open:
@@ -80,7 +83,7 @@ clp_constraints:
   - type: zero
     target: s2
     interval:
-      - [1, 690]
+      - [1, ?]
   - type: zero
     target: s3
     interval:

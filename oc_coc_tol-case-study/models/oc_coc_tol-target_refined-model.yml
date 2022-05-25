@@ -2,7 +2,9 @@ default_megacomplex: decay
 
 dataset_groups:
   default:
+    # which residual_function? delete the line that is not appropriate
     residual_function: variable_projection
+    residual_function: non_negative_least_squares
 
 dataset:
   oc_tol_data:
@@ -60,7 +62,6 @@ k_matrix:
   km1fast:
     matrix:
       (c2, c1): rates.k21
-      # (c3, c1): rates.k31
       (c3, c1): rates.kocfast
       (c3, c2): rates.kocfast
       (c3, c3): rates.k33
@@ -69,7 +70,6 @@ k_matrix:
   km1slow:
     matrix:
       (c2, c1): rates.k21
-      # (c3, c1): rates.k31
       (c3, c1): rates.kocslow
       (c3, c2): rates.kocslow
       (c3, c3): rates.k33
@@ -78,7 +78,6 @@ k_matrix:
   km2fast:
     matrix:
       (s2, s1): rates.k21
-      # (s3, s1): rates.k31coc
       (s3, s1): rates.kcocfast
       (s3, s2): rates.kcocfast
       (s3, s3): rates.k33
@@ -87,7 +86,6 @@ k_matrix:
   km2slow:
     matrix:
       (s2, s1): rates.k21
-      # (s3, s1): rates.k31coc
       (s3, s1): rates.kcocslow
       (s3, s2): rates.kcocslow
       (s3, s3): rates.k33
