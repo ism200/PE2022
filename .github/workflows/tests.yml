@@ -47,6 +47,8 @@ jobs:
               "coc_tol",
               "oc_coc_tol_target",
               "oc_coc_tol_target_refined",
+              "CKq-case-study",
+              "ocg_dcm",
               "PAL_open_closed_target_exercise"
           ]
 

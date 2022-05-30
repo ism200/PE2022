@@ -1,0 +1,18 @@
+input:
+  - ["1", 1]
+  - ["0", 0]
+  - {vary: false}
+
+irf:
+  - ["common_dispcenter",550, {"vary": False}]
+  - ["data1_disp1", -0.7339, {"vary": False} ]
+  - ["data1_disp2", -0.3510, {"vary": False} ]
+  - ["center1",?, {"vary": True}]
+  - ["width1",5.053E-02, {"vary": True}]
+
+rates:
+  - ["k21",3,{"vary": False}]
+  - ["k32",?]
+  - ["k43",?]
+  - ["k44",?]
+  - {non-negative: True}
