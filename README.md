@@ -4,8 +4,6 @@
 
 [Photosynthesis and Energy 2022](https://www.nat.vu.nl/~ivo/PE2022/)
 
-in preparation
-
 ## Case studies
 
 - [BE](./BE-case-study/)
@@ -17,3 +15,10 @@ in preparation
 
 - [BRC](./BRC-case-study/)
 - [CK](./CK-case-study/)
+- [oc-coc-tol](./oc_coc_tol-case-study/)
+- [PAL-exercise](./PAL-case-study/PAL_open_closed_target_exercise.ipynb)
+
+## Exam questions
+
+- [CKq](./CKq-exam-2022-question-1/)
+- [ocg-dcm](./ocg-exam-2022-question-2/)
