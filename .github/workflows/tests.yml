@@ -50,7 +50,9 @@ jobs:
               "oc_coc_tol_target",
               "oc_coc_tol_target_refined",
               "CKq-case-study",
+              "CKuq-case-study",
               "ocg_dcm",
+              "ocg_dcm-refined2",
               "PAL_open_closed_target_exercise"
           ]
 
