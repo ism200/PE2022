@@ -1,0 +1,117 @@
+default_megacomplex: decay
+
+dataset_groups:
+  default:
+    residual_function: variable_projection
+
+dataset:
+  ocg_dcm_data:
+    initial_concentration: input1
+    megacomplex: [mc1, artifact1]
+    irf: irf1
+    scale: scale.1
+  tripletSADS:
+    megacomplex:
+    - mc2
+    scale: scale.tripletSADS
+  cg_dcmSADS:
+    megacomplex:
+    - mc3
+    scale: scale.cg_dcmSADS
+  RPSADS:
+    megacomplex:
+    - mc4
+    scale: scale.RPSADS
+
+initial_concentration:
+  input1:
+    compartments: [s1, s2, s3, s4, s5]
+    parameters: [
+      input.o,
+      input.0,
+      input.0,
+      input.g,
+      input.0
+      ]
+
+megacomplex:
+  mc1:
+    k_matrix: [km1]
+  artifact1:
+    type: coherent-artifact
+    order: 3
+  mc2:
+    dimension: time
+    target: s5
+    type: clp-guide
+  mc3:
+    dimension: time
+    target: s4
+    type: clp-guide
+  mc4:
+    dimension: time
+    target: s3
+    type: clp-guide
+
+k_matrix:
+  km1:
+    matrix:
+      (s2, s1): rates.k21
+      (s3, s1): rates.k32
+      (s3, s2): rates.k32
+      (s3, s3): rates.k33
+      (s5, s3): rates.k53
+      (s5, s5): rates.k55
+      (s4, s1): rates.k42
+      (s4, s2): rates.k42
+      (s4, s4): rates.k44
+
+irf:
+  irf1:
+    type: spectral-multi-gaussian
+    center: [irf.center1]
+    width: [irf.width1]
+    dispersion_center: irf.common_dispcenter
+    center_dispersion_coefficients: [irf.data1_disp1,irf.data1_disp2]
+    model_dispersion_with_wavenumber: true
+
+clp_relations:
+  - source: s2
+    target: s3
+    parameter: rel.r1
+    interval: [[450, 500]]
+
+clp_constraints:
+  # - type: zero
+  #   target: s3
+  #   interval:
+  #     - [570, 590]
+  - type: zero
+    target: s5
+    interval:
+      # - [[380, 410],[690, 890]]
+      - [380, 420]
+  - type: zero
+    target: s5
+    interval:
+      - [590, 890]
+
+weights:
+  - datasets: [ocg_dcm_data]
+    global_interval: [520, 540]
+    value: 0.4
+  - datasets: [ocg_dcm_data]
+    global_interval: [690,1000]
+    value: 0.5
+  - datasets: [tripletSADS]
+    global_interval: [100, 1000]
+    value: 5
+  - datasets: [cg_dcmSADS]
+    global_interval: [100, 1000]
+    value: 5
+  - datasets: [cg_dcmSADS]
+    global_interval: [100, 420]
+    value: 0.5
+  - datasets: [RPSADS]
+    global_interval: [100, 1000]
+    value: 500
