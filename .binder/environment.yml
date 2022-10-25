@@ -11,7 +11,7 @@ dependencies:
   - jupyterlab-unfold
   # Python Kernel
   - ipykernel>5.1
-  - python=3.8
+  - python=3.10
   # update outdated repo2docker version
   - pip
   - pip:

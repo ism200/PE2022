@@ -29,10 +29,10 @@ jobs:
       notebook-list: ${{ steps.notebooks.outputs.notebook-list }}
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python 3.8
+      - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: "3.10"
       - name: Set notebook list
         id: notebooks
         shell: python
@@ -77,10 +77,10 @@ jobs:
         notebook_path: ${{fromJson(needs.create-test-matrix.outputs.notebook-list)}}
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python 3.8
+      - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: "3.10"
       - name: Install test dependencies
         run: |
           pip install wheel
