@@ -38,6 +38,7 @@ jobs:
         shell: python
         run: |
           import json
+          import os
           from pathlib import Path
 
           block_list =[
@@ -65,8 +66,8 @@ jobs:
                           "path": notebook_path.resolve().as_posix(),
                       }
                   )
-
-          print(f"::set-output name=notebook-list::{json.dumps(notebook_paths)}")
+          with open(os.getenv("GITHUB_OUTPUT"), "a", encoding="utf8") as f:
+              f.writelines([f"notebook-list={json.dumps(notebook_paths)}"])
 
   run-tests:
     name: "Test ${{ matrix.notebook_path.name }}"
