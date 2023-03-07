@@ -29,15 +29,16 @@ jobs:
       notebook-list: ${{ steps.notebooks.outputs.notebook-list }}
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python 3.8
+      - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: "3.10"
       - name: Set notebook list
         id: notebooks
         shell: python
         run: |
           import json
+          import os
           from pathlib import Path
 
           block_list =[
@@ -65,8 +66,8 @@ jobs:
                           "path": notebook_path.resolve().as_posix(),
                       }
                   )
-
-          print(f"::set-output name=notebook-list::{json.dumps(notebook_paths)}")
+          with open(os.getenv("GITHUB_OUTPUT"), "a", encoding="utf8") as f:
+              f.writelines([f"notebook-list={json.dumps(notebook_paths)}"])
 
   run-tests:
     name: "Test ${{ matrix.notebook_path.name }}"
@@ -77,10 +78,10 @@ jobs:
         notebook_path: ${{fromJson(needs.create-test-matrix.outputs.notebook-list)}}
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python 3.8
+      - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: "3.10"
       - name: Install test dependencies
         run: |
           pip install wheel
