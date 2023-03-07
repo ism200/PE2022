@@ -50,8 +50,12 @@ jobs:
               "coc_tol",
               "oc_coc_tol_target",
               "oc_coc_tol_target_refined",
+              "PCP-case-study",
+              "PCP-case-study-pretty",
+              "Spirulina-case-study",
               "CKq-case-study",
               "CKuq-case-study",
+              "PS1_pyglotaran_equalarea",
               "ocg_dcm",
               "ocg_dcm-refined2",
               "PAL_open_closed_target_exercise"
