@@ -4,8 +4,8 @@ input:
   - {vary: false}
 
 irf:
-  - ["center", -84.0]
-  - ["width", 1.6]
+  - ["center", ?]
+  - ["width", ?]
   - ["backsweep", 13800.0, {vary: false}]
   - ["dispc", 690.0, {vary: false}]
   - ["disp1", -0.68]
@@ -13,11 +13,11 @@ irf:
 
 kinetic:
   - [4, {vary: false}]
-  - [0.2, {vary: true}]
-  - 0.05
-  - 0.1
-  - 0.03
-  - 0.00016
+  - [?, {vary: true}]
+  - ?
+  - ?
+  - ?
+  - ?
   - ["7", {expr: '$kinetic.4 * $scaling.1'}]
   - ["8", {expr: '$kinetic.5 * $scaling.2'}]
 

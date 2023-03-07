@@ -4,16 +4,16 @@ input:
   - {vary: false}
 
 irf:
-  - ["center", 0.04]
-  - ["width", 0.07]
+  - ["center", ?]
+  - ["width", ?]
   # - ["dispc", 692.0, {vary: false}]
   # - ["disp1", 2.71, {vary: false}]
   # - ["disp2", -2.85, {vary: false}]
   # - ["backsweep", 13200.0, {vary: false}]
 
 rates:
-  - ["k21",10]
-  - ["k32",2]
-  - ["k43",0.3]
-  - ["k54",0.03]
-  - ["k55",1.e-4]
+  - ["k21",?]
+  - ["k32",?]
+  - ["k43",?]
+  - ["k54",?]
+  - ["k55",?]

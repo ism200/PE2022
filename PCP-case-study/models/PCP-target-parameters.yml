@@ -4,21 +4,21 @@ input:
   - {vary: false}
 
 irf:
-  - ["center", 0.005]
-  - ["width", 0.0666]
+  - ["center", ?]
+  - ["width", ?]
 
 rates:
-  - ["k1",11]
-  - ["k2",0.6]
+  - ["k1",?]
+  - ["k2",?]
   - ["k3",{expr: '$rates.k2 / $scaling.2'}]
-  - ["k4",0.4]
-  - ["k5",0.02, {vary: false}]
-  - ["k6",5.e-4, {vary: false}]
+  - ["k4",?]
+  - ["k5",?, {vary: false}]
+  - ["k6",?, {vary: false}]
   - ["k7",{expr: '$rates.k1 * $scaling.1'}]
   - ["k8",{expr: '$rates.k2'}]
-  - ["k9",0.04, {vary: false}]
+  - ["k9",?, {vary: false}]
   - ["k10",{expr: '$rates.k11 * $scaling.2'}]
-  - ["k11",0.008]
+  - ["k11",?]
 
 rel:
   - ['r1', 1, {"vary": False}]
