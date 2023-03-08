@@ -4,8 +4,8 @@ input:
   - {vary: false}
 
 irf:
-  - ["center", -84.0]
-  - ["width", 1.6]
+  - ["center", ?]
+  - ["width", ?]
   # - ["scale", 1, {vary: false}]
   - ["dispc", 690.0, {vary: false}]
   - ["disp1", -0.68]
@@ -15,8 +15,8 @@ irf:
 kinetic:
   # - [2., {vary: false}]
   - [2., {vary: true}]
-  - 0.225
-  - 0.068
-  - 0.021
-  - 0.00016
+  - ?
+  - ?
+  - ?
+  - ?
   - {non-negative: true}
