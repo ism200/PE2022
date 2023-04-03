@@ -2,7 +2,10 @@ default_megacomplex: decay
 
 dataset_groups:
   default:
-    residual_function: non_negative_least_squares
+# decide which residual_function to use
+# uncomment (by pressing the keys Ctrl / ) only one of these two lines
+#     residual_function: non_negative_least_squares
+#     residual_function: variable_projection
 
 dataset:
   dataset1:
@@ -28,43 +31,56 @@ k_matrix:
       (s4, s4): kinetic.6
       (s5, s5): kinetic.6
 
-clp_constraints:
-  - type: zero
-    target: s1
-    interval:
-      - [100, 1000]
-  - type: zero
-    target: s3
-    interval:
-      - [100, 680]
-  - type: zero
-    target: s4
-    interval:
-      - [100, 690]
+# decide whether or not to use clp_constraints
+# uncomment (by pressing the keys Ctrl / ) to use clp_constraints
+# add the name of the compartment
+# fill the wavelength interval
+# in this example the spectrum of compartment s1 is equal to zero from 100-1000 nm
+# constraints on other clp can be listed below that
+#
+# clp_constraints:
+#   - type: zero
+#     target: s1
+#     interval:
+#       - [100, 1000]
+#   - type: zero
+#     target: 
+#     interval:
+#       - [,]
+#   - type: zero
+#     target: 
+#     interval:
+#       - [,]
 
-
-clp_area_penalties:
-  - type: equal_area
-    source: s5
-    source_intervals: [[0, 1000]]
-    target: s2
-    target_intervals: [[0, 1000]]
-    parameter: area.1
-    weight: 0.1
-  - type: equal_area
-    source: s3
-    source_intervals: [[0, 1000]]
-    target: s2
-    target_intervals: [[0, 1000]]
-    parameter: area.1
-    weight: 0.1
-  - type: equal_area
-    source: s4
-    source_intervals: [[0, 1000]]
-    target: s2
-    target_intervals: [[0, 1000]]
-    parameter: area.1
-    weight: 0.1
+# decide whether or not to use clp_area_penalties
+# uncomment (by pressing the keys Ctrl / ) to use clp_area_penalties
+# add the names of the compartments
+# fill the wavelength intervals
+# add the relative area parameter and the weight of the penalty
+# clp_area_penalties on other clp can be listed below that
+#
+# clp_area_penalties:
+#   - type: equal_area
+#     source: s5
+#     source_intervals: [[0, 1000]]
+#     target: s2
+#     target_intervals: [[0, 1000]]
+#     parameter: area.1
+#     weight: 0.1
+#   - type: equal_area
+#     source: 
+#     source_intervals: [[0, 1000]]
+#     target: 
+#     target_intervals: [[0, 1000]]
+#     parameter: area.1
+#     weight: 0.1
+#   - type: equal_area
+#     source: 
+#     source_intervals: [[0, 1000]]
+#     target: 
+#     target_intervals: [[0, 1000]]
+#     parameter: area.1
+#     weight: 0.1
 
 
 irf:

@@ -5,11 +5,11 @@ input:
 
 
 irf_common_closed:
-  - ["center", ]
+  - ["center", ?]
   - ["backsweep", 13800.0, {vary: false}]
 
 irf_common_open:
-  - ["center", ]
+  - ["center", ?]
   - ["backsweep", 13800.0, {vary: false}]
 
 irf_1:
@@ -30,16 +30,16 @@ gauss_2:
 
 #   pattern <#kinetic>_<#scaling>
 kinetic:
-  - ["1", , {vary: false}]
+  - ["1", ?, {vary: false}]
   - ["1_1", {expr: '$kinetic.1 * $scaling.1'}]
   - ["2", 5e-4, {vary: false}]
-  - ["3", , {vary: false}]
-  - ["4", ]
+  - ["3", ?, {vary: false}]
+  - ["4", ?]
   - ["4_2", {expr: '$kinetic.4 * $scaling.2'}]
-  - ["5", ]
-  - ["4_open", ]
-  - ["5_open", ]
-  - ["4_2_open", , {vary: false}]
+  - ["5", ?]
+  - ["4_open", ?]
+  - ["5_open", ?]
+  - ["4_2_open", ?, {vary: false}]
   - {non-negative: True}
 # note that non-negative must be all lower case!
 

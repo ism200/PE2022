@@ -4,7 +4,7 @@ input:
   - {vary: false}
 
 irf_common:
-  - ["center", 120.0]
+  - ["center", ?]
   - ["backsweep", 13800.0, {vary: false}]
 
 irf_1:
@@ -19,8 +19,8 @@ irf_2:
   - ["scale", 0.136, {vary: true}]
 
 kinetic:
-  - ["1", 0.273528]
-  - ["2", 0.0363840]
-  - ["3", 0.00822501]
-  - ["4", 0.00237743]
+  - ["1", ?]
+  - ["2", ?]
+  - ["3", ?]
+  - ["4", ?]
   - {non-negative: True}

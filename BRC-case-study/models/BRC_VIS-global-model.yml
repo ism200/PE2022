@@ -2,7 +2,10 @@ default_megacomplex: decay
 
 dataset_groups:
   default:
-    residual_function: variable_projection
+# decide which residual_function to use
+# uncomment (by pressing the keys Ctrl / ) only one of these two lines
+#     residual_function: non_negative_least_squares
+#     residual_function: variable_projection
 
 dataset:
   BRC_VIS_data:

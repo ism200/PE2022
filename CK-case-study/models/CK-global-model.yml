@@ -2,14 +2,17 @@ default_megacomplex: decay
 
 dataset_groups:
   default:
-    residual_function: non_negative_least_squares
+# decide which residual_function to use
+# uncomment (by pressing the keys Ctrl / ) only one of these two lines
+#     residual_function: non_negative_least_squares
+#     residual_function: variable_projection
 
 dataset:
   CK_data:
     initial_concentration: input1
     megacomplex: [mc1]
     irf: irf1
-    
+
 initial_concentration:
   input1:
     compartments: [s1, s2]

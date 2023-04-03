@@ -2,7 +2,10 @@ default_megacomplex: decay
 
 dataset_groups:
   default:
-    residual_function: non_negative_least_squares
+# decide which residual_function to use
+# uncomment (by pressing the keys Ctrl / ) only one of these two lines
+#     residual_function: non_negative_least_squares
+#     residual_function: variable_projection
 
 dataset:
   dataset1:
@@ -46,10 +49,15 @@ initial_concentration:
       input.0,
       input.0]
 
-clp_constraints:
-  - type: zero
-    target: s1
-    interval:
-      - [1, 1000]
+# decide whether or not to use clp_constraints
+# uncomment (by pressing the keys Ctrl / ) to use clp_constraints
+# add the name of the compartment
+# fill the wavelength interval
+# in this example the spectrum of compartment s1 is equal to zero from 1-1000 nm
+# clp_constraints:
+#   - type: zero
+#     target: s1
+#     interval:
+#       - [1, 1000]
 # weights:
 #     datasets: [dataset1]

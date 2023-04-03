@@ -11,8 +11,8 @@ irf:
   - ["width2",5.053E-02, {"vary": True}]
 
 rates:
-  - ["k21",]
-  - ["k32",]
-  - ["k43",]
+  - ["k21",?]
+  - ["k32",?]
+  - ["k43",?]
   - ["k44",0.00001, {"vary": False}]
   - {non-negative: True}

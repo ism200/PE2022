@@ -2,7 +2,10 @@ default_megacomplex: decay
 
 dataset_groups:
   default:
-    residual_function: variable_projection
+# decide which residual_function to use
+# uncomment (by pressing the keys Ctrl / ) only one of these two lines
+#     residual_function: non_negative_least_squares
+#     residual_function: variable_projection
 
 dataset:
   BRC_VIS_data:
@@ -63,11 +66,26 @@ irf:
     dispersion_center: irf2.dispc
     center_dispersion_coefficients: [irf2.disp1, irf2.disp2]
 
-clp_relations:
-  - source: s5
-    target: s3
-    parameter: rel.r1
-    interval: [[870, 980]]
+# decide whether or not to use clp_constraints
+# uncomment (by pressing the keys Ctrl / ) to use clp_constraints
+# add the name of the compartment
+# fill the wavelength interval
+# in this example the spectrum of compartment ? is equal to zero from 1-1000 nm
+# clp_constraints:
+#   - type: zero
+#     target: 
+#     interval:
+#       - [1, 1000]
+#
+# decide whether or not to use clp_relations
+# uncomment (by pressing the keys Ctrl / ) to use clp_relations
+# add the names of the compartments
+# fill the wavelength interval
+# clp_relations:
+#   - source: 
+#     target: 
+#     parameter: rel.r1
+#     interval: [[0, 1000]]
 
 weights:
   - datasets: [BRC_NIR_data]

@@ -2,9 +2,10 @@ default_megacomplex: decay
 
 dataset_groups:
   default:
-    # which residual_function? delete the line that is not appropriate
-    residual_function: variable_projection
-    residual_function: non_negative_least_squares
+# decide which residual_function to use
+# uncomment (by pressing the keys Ctrl / ) only one of these two lines
+#     residual_function: non_negative_least_squares
+#     residual_function: variable_projection
 
 dataset:
   oc_tol_data:
@@ -108,15 +109,30 @@ irf:
     center_dispersion_coefficients: [irf.data1_disp1,irf.data1_disp2]
     model_dispersion_with_wavenumber: true
 
-clp_relations:
-  - source: c1
-    target: c2
-    parameter: rel.r1
-    interval: [[680, 1000]]
-  - source: s1
-    target: s2
-    parameter: rel.r1
-    interval: [[680, 1000]]
+# decide whether or not to use clp_constraints
+# uncomment (by pressing the keys Ctrl / ) to use clp_constraints
+# add the name of the compartment
+# fill the wavelength interval
+# in this example the spectrum of compartment ? is equal to zero from 1-1000 nm
+# clp_constraints:
+#   - type: zero
+#     target: 
+#     interval:
+#       - [1, 1000]
+#
+# decide whether or not to use clp_relations
+# uncomment (by pressing the keys Ctrl / ) to use clp_relations
+# add the names of the compartments
+# fill the wavelength interval
+# clp_relations:
+#   - source: 
+#     target: 
+#     parameter: rel.r1
+#     interval: [[0, 1000]]
+#   - source: 
+#     target: 
+#     parameter: rel.r1
+#     interval: [[0, 1000]]
 
 weights:
   - datasets: [oc_tol_data]
